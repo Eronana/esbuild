@@ -287,7 +287,7 @@ func (r *MinifyRenamer) AssignNamesByFrequency(minifier *js_ast.NameMinifier) {
 
 				// Make sure names of symbols used in JSX elements start with a capital letter
 				if slot.needsCapitalForJSX != 0 {
-					for name[0] >= 'a' && name[0] <= 'z' {
+					for name[0] < 'A' || name[0] > 'Z' {
 						name = minifier.NumberToMinifiedName(nextName)
 						nextName++
 					}
